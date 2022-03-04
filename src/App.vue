@@ -5,8 +5,8 @@
     :key="index"
     :count="count"
     :selected="selected"
-    :toggle="createToggle(index, selected)"
-    :add="createAdd(index)"
+    :toggle="createToggler(index, selected)"
+    :add="createAdder(index)"
   />
   <h6>2022 By Kimia.</h6>
 </template>
@@ -20,10 +20,10 @@ export default {
     List,
   },
   methods: {
-    createToggle (key) {
+    createToggler (key) {
       return () => this.$store.dispatch('toggle', key);
     },
-    createAdd (key) {
+    createAdder (key) {
       return () => this.$store.dispatch('add', key);
     }
   }
