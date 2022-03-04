@@ -12,3 +12,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+	.upvote {
+		background: #F4F6F8;
+		color: #343A40;
+
+		&--selected {
+			background: #E5E8FD;
+			color: #253CF2;
+		}
+	}
+</style>
