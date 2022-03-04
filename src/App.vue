@@ -1,15 +1,15 @@
 <template>
   <h1>task</h1>
-  <Upvote :selected="true" />
+  <List />
 </template>
 
 <script>
-import Upvote from './components/Upvote.vue'
+import List from './components/List.vue'
 
 export default {
   name: 'App',
   components: {
-    Upvote,
+    List,
   },
 }
 </script>
@@ -19,6 +19,7 @@ export default {
     font-size: 16px;
     --space: 0.8rem;
     --radius: 5px;
+    --size: 50px;
   }
 
   * {

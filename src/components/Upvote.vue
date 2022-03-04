@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="{ 'upvote': true , 'upvote--selected': selected }">
+  <div :class="{ 'upvote': true , 'upvote--selected': selected }">
 		up
   </div>
 </template>
@@ -14,14 +14,12 @@ export default {
 </script>
 
 <style lang="scss">
-	$size: 50px;
-
 	.upvote {
 		--background: #F4F6F8;
 		--color: #343A40;
 
-		width: $size;
-		height: $size;
+		width: var(--size);
+    height: var(--size);
 		border-radius: var(--radius);
 		padding: var(--space);
 		background: var(--background);
