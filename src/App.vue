@@ -1,15 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <h1>task</h1>
+  <Upvote :selected="true" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Upvote from './components/Upvote.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Upvote,
   }
 }
 </script>
