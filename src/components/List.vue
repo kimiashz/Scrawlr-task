@@ -1,11 +1,14 @@
 <template>
   <div class="list">
     <div class="list__items">
-      <Upvote :selected="true" />
-      <Upvote :selected="false" />
-      <Upvote :selected="true" />
+      <Upvote
+        v-for="n in count"
+        :key="n"
+        :selected="selected"
+        @click="toggle"
+      />
     </div>
-    <div class="list__add">
+    <div class="list__add" @click="add">
       +
     </div>
   </div>
@@ -16,9 +19,15 @@ import Upvote from './Upvote.vue'
 
 export default {
   name: 'List',
+  props: {
+    count: Number,
+    selected: Boolean,
+    toggle: Function,
+    add: Function,
+  },
   components: {
     Upvote,
-  },
+  }
 }
 </script>
 
