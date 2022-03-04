@@ -1,13 +1,14 @@
 <template>
-  <h1>Kimia</h1>
+  <h1>Scrawlr Task</h1>
   <List
     v-for="({ count, selected }, index) in items"
     :key="index"
     :count="count"
     :selected="selected"
-    :toggle="() => { items[index].selected = !selected; }"
-    :add="() => { ++items[index].count; }"
+    :toggle="createToggle(index, selected)"
+    :add="createAdd(index)"
   />
+  <h6>2022 By Kimia.</h6>
 </template>
 
 <script>
@@ -21,10 +22,18 @@ export default {
   data() {
     return {
       items: [
-        { count: 5, selected: true },
-        { count: 3, selected: true },
-        { count: 8, selected: false },
+        { count: 1, selected: true },
+        { count: 1, selected: false },
+        { count: 1, selected: false },
       ]
+    }
+  },
+  methods: {
+    createToggle (key, selected) {
+      return () => this.items[key].selected = !selected;
+    },
+    createAdd (key) {
+      return () => ++this.items[key].count;
     }
   }
 }
