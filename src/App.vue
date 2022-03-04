@@ -1,7 +1,7 @@
 <template>
   <h1>Scrawlr Task</h1>
   <List
-    v-for="({ count, selected }, index) in items"
+    v-for="({ count, selected }, index) in $store.state.items"
     :key="index"
     :count="count"
     :selected="selected"
@@ -19,21 +19,12 @@ export default {
   components: {
     List,
   },
-  data() {
-    return {
-      items: [
-        { count: 1, selected: true },
-        { count: 1, selected: false },
-        { count: 1, selected: false },
-      ]
-    }
-  },
   methods: {
-    createToggle (key, selected) {
-      return () => this.items[key].selected = !selected;
+    createToggle (key) {
+      return () => this.$store.dispatch('toggle', key);
     },
     createAdd (key) {
-      return () => ++this.items[key].count;
+      return () => this.$store.dispatch('add', key);
     }
   }
 }
@@ -49,5 +40,13 @@ export default {
 
   * {
     box-sizing: border-box;
+  }
+
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    margin-top: var(--space);
   }
 </style>
